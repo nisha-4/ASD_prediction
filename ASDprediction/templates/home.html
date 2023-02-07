@@ -1,0 +1,337 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+    <style>
+        body{
+
+        }
+        html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0 auto;
+}
+#comeAndGo {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: row;
+  justify-content:center;
+}
+#navBar {
+  height: 50px;
+  width: 98%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  position: fixed;
+  margin: 0 auto;
+  z-index: 1;
+}
+#navRevealBttn {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  left: 1.15%;
+  background: linear-gradient(-135deg, var(--main-blue), var(--main-purple));
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 10px 10px 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.menu {
+  width: 100%;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+}
+#navUl {
+  list-style: none;
+  width: 0px;
+  display: flex;
+  flex-direction: row;
+  height: 0px;
+  font-size: 0px;
+  background-color: rgba(0 ,0 ,0 ,0.5);
+  justify-self: flex-end;
+  align-items: center;
+  justify-content: center;
+}
+.navLi {
+  width: 15%;
+  padding: 0px;
+  height: 0;
+  color: white;
+  padding-bottom: 20px;
+}
+.navLi a:link{
+  color: white;
+  text-decoration: none;
+}
+#block1 {
+  width: 98%;
+  margin: 0 auto;
+  box-shadow: 0 6px 25px 2px;
+  border-radius: 10px;
+}
+#welImg {
+  width: 100%;
+  height: 900px;
+  background-image:url("{% static 'ASDprediction/images/one.jpg' %}");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: grayscale(100%);
+  border-radius: 10px;
+  text-align:center;
+
+}
+#h1 {
+  width: 100%;
+  font-size: 100px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  opacity: 0;
+}
+#block2,
+#block3,
+#block4,
+#block5,
+#block6{
+  display: flex;
+  width: 0%;
+  height: 0;
+  margin: 0px auto;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 25px 2px;
+  border-radius: 10px;
+  font-size: 0px;
+<!--  background-image:url("{% static 'ASDprediction/images/one.jpg' %}");-->
+<!--        height: 100%;-->
+<!--        background-repeat: no-repeat;-->
+<!--        background-size: cover;-->
+}
+
+    </style>
+
+
+
+    <body>
+
+    <!-- META DATA FOR CRAWLERS -->
+    <meta name="description" content="An interactive landing page design, with an interactive navigation bar, and appearing divs"><!-- DESCRIPTION FOR WEBPAGE -->
+    <meta name="keywords" content="Navigation,CSS,HTML,Design,Codepen,Landing Page"><!-- KEYWORDS CONNECTED TO WEBPAGE -->
+    <meta name="author" content="D Designs"><!-- AUTHOR OF WEBPAGE -->
+
+    <!-- OPEN GRAPH FOR SHARING AS LINKS -->
+     <meta property="og:title" content="Landing Page Interactive Design" />
+    <meta property="og:description" content="A creative landing page with an interactive navigation bar."><!-- DESCRIPTION SHOWN WHEN SHARED -->
+    <meta property="og:url" content="#" /><!-- URL TO WEBSITE -->
+    <meta property="og:image" content="#" /><!-- IMAGE SHOWN WHEN SHARED -->
+
+<
+
+    <div id="comeAndGo">
+
+      <article id="navRevealBttn">
+        <p class="menu"> Menu</p>
+      </article>
+      <div id="navBar">
+        <ul id="navUl">
+          <li class="navLi"><a href="javascript:block2Here()">Home </a></li>
+          <li class="navLi"><a href="javascript:block3Here()">About</a></li>
+          <li class="navLi"><a href="javascript:block4Here()">ASD</a></li>
+          <li class="navLi"><a href="javascript:block5Here()">Expert Advice</a></li>
+          <li class="navLi"><a href="javascript:block6Here()">Contact us</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div id="block1">
+      <h1 id="h1"></h1>
+      <div id="welImg">
+          <h1>Autism Specturm Disorder Prediction</h1></div>
+
+    </div>
+
+    <div id="block2">
+        <h1 id="blockTxt1" style="color:black;">Home</h1>
+    </div>
+    <div id="block3">
+        <h1 id="blockTxt" style="color:red;">About</h1>
+    </div>
+    <div id="block4">
+        <div align="center">
+     <h1>
+         Autism Prediction System
+     </h1>
+
+     <form action="predict">
+         <input type = "submit" value = "Lets get started">
+     </form>
+
+ </div></div>
+    <div id="block5"><h1 id="blockTxt" style="color:orange;">Expert Advice</h1></div>
+    <div id="block6"><h1 id="blockTxt" style="color:purple;">Contact us</h1></div>
+
+
+
+</body>
+<script>
+   window.onload = function() {alert("Use the Navigation Bar to make the other div's appear. And leave a heart if you like.")}
+
+// FUNCTION TO CHECK THE FONTSIZE OF THE TEXT IN THE NAVUL, AND RUN DIFFERENT FUNCTIONS IF THE FONTSIZE MATCHES EITHER OF THE FONTSIZES.
+var bttn = document.getElementById('navRevealBttn');
+bttn.addEventListener('click', function(){
+var navUl = document.getElementById('navUl');
+var style = getComputedStyle(navUl);
+var fontSize = style.fontSize;
+switch (fontSize) {
+  case '0px':
+    IsIt1();
+    break;
+
+  case '20px':
+    IsIt2();
+    break;
+}
+});
+function IsIt1() {
+  navBar.style.boxShadow = '0px 0px 5px 5px black';
+  navBar.style.transitionDuration = "1.5s";
+  navUl.style.fontSize = '20px';
+  navUl.style.width = '100vw';
+  navUl.style.height = "100%";
+  navUl.style.transitionDuration = "1.5s";
+  navRevealBttn.style.width = "60px";
+  navRevealBttn.style.height = "50px";
+  navRevealBttn.style.borderRadius = "0px";
+  navRevealBttn.style.opacity = "0.5";
+  navRevealBttn.style.boxShadow = "0px 0px 0px 0px";
+  navRevealBttn.style.transitionDuration = "1.5s";
+  hover1();
+}
+function IsIt2() {
+  navBar.style.boxShadow = '0px 0px 0px 0px black';
+  navBar.style.transitionDuration = "1s";
+  navUl.style.fontSize = '0px';
+  navUl.style.width = '0';
+  navUl.style.height = "0px";
+  navUl.style.transitionDuration = "1s";
+  navRevealBttn.style.width = "100px";
+  navRevealBttn.style.height = "100px";
+  navRevealBttn.style.borderRadius = "10px";
+  navRevealBttn.style.opacity = "1";
+  navRevealBttn.style.boxShadow = "0px 10px 10px 5px";
+  navRevealBttn.style.transitionDuration = "1s";
+  hover2();
+}
+
+
+//HOVER FUNCTION FOR NAVIGATION MENU BUTTON.
+function hover1() {
+  document.getElementById('navRevealBttn').onmouseover =  function() {
+    navRevealBttn.style.boxShadow = "0px 0px 0px 0px";
+    navRevealBttn.style.transform = "translateY(0px)";
+    navRevealBttn.style.opacity = "1";
+    navRevealBttn.style.transitionDuration = "0.5s";
+  };
+  document.getElementById('navRevealBttn').onmouseout = function() {
+    navRevealBttn.style.boxShadow = "0px 0px 0px 0px";
+    navRevealBttn.style.transform = "translateY(0px)";
+    navRevealBttn.style.opacity = "0.5";
+    navRevealBttn.style.transitionDuration = "0.5s";
+  };
+}
+function hover2() {
+  document.getElementById('navRevealBttn').onmouseover =  function() {
+    navRevealBttn.style.boxShadow = "0px 0px 10px 2px";
+    navRevealBttn.style.transform = "translateY(10px)";
+    navRevealBttn.style.transitionDuration = "0.5s";
+};
+  document.getElementById('navRevealBttn').onmouseout =  function() {
+    navRevealBttn.style.boxShadow = "0px 10px 10px 5px";
+    navRevealBttn.style.transform = "translateY(0px)";
+    navRevealBttn.style.transitionDuration = "0.5s";
+};
+}
+hover2();
+
+
+
+//CHECKS THE HEIGHT OF THE BODY AGAINST THE SCROLL-TOP AND ACTS ACCORDINGLY.
+window.onscroll = function() {welcomeAll()};
+
+function welcomeAll() {
+  if (document.body.scrollTop < 100 || document.documentElement.scrollTop < 100) {
+    welImg.style.filter = "grayscale(0%)";
+    h1.style.opacity = "1";
+    h1.style.transitionDuration = "4s";
+    welImg.style.transitionDuration = "4s";
+    IsIt1();
+
+  }
+}
+
+
+//FUNCTION TO CHANGE THE WEBPAGE AFTER A SPECIFIED AMOUNT OF TIME.
+function go() {
+  setTimeout (function(){
+    window.location.href = "https://codepen.io/dylanrtownsend/full/YobGYx";
+  },5000)
+}
+
+
+
+function block2Here() {
+  block2.style.fontSize = '20px';
+  block2.style.margin = '20px auto';
+  block2.style.height = "90vh";
+  block2.style.width = '98%';
+  document.getElementById('block2').scrollIntoView();
+
+
+}
+function block3Here() {
+  block3.style.fontSize = '20px';
+  block3.style.margin = '20px auto';
+  block3.style.height = "90vh";
+  block3.style.width = '98%';
+  document.getElementById('block3').scrollIntoView();
+
+}
+function block4Here() {
+  block4.style.fontSize = '20px';
+  block4.style.margin = '20px auto';
+  block4.style.height = "90vh";
+  block4.style.width = '98%';
+  document.getElementById('block4').scrollIntoView();
+}
+function block5Here() {
+  block5.style.fontSize = '20px';
+  block5.style.margin = '20px auto';
+  block5.style.height = "90vh";
+  block5.style.width = '98%';
+  document.getElementById('block5').scrollIntoView();
+}
+function block6Here() {
+  block6.style.fontSize = '20px';
+  block6.style.margin = '20px auto';
+  block6.style.height = "90vh";
+  block6.style.width = '98%';
+  document.getElementById('block6').scrollIntoView();
+}
+
+</script>
+</html>
