@@ -17,7 +17,7 @@ def predict(request):
     return render(request, 'predict.html')
 def result(request):
     # DATA_COLLECTION AND ANALYSIS
-    asd_dataset = pd.read_csv(r'C:\Users\DELL\Desktop\asd.csv')
+    asd_dataset = pd.read_csv(r'\asd.csv')
     # removing nan value to zero
     asd_dataset.replace(np.nan, 0)
     # Separating data and label
